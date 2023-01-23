@@ -1,0 +1,52 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+
+int main() {
+    const double PI = 3.14159265;
+    const int LARGE_DIAM = 24;
+    const int LARGE_FED = 9;
+    const double LARGE_PRICE = 15.78;
+    const int MEDIUM_DIAM = 18;
+    const int MEDIUM_FED = 5;
+    const double MEDIUM_PRICE = 13.25;
+    const int SMALL_DIAM = 14;
+    const int SMALL_FED = 2;
+    const double SMALL_PRICE = 8.39;
+    int guests;
+    double tipPercent;
+    int totalCost;
+
+    std::cout << "Please enter how many guests to order for: ";
+    std::cin >> guests;
+
+    int totalGuests = guests;
+    int large_pizzas;
+    int medium_pizzas;
+    int small_pizzas;
+
+    large_pizzas = guests / LARGE_FED;
+    guests = guests % LARGE_FED;
+    medium_pizzas = guests / MEDIUM_FED;
+    guests = guests % MEDIUM_FED;
+    small_pizzas = guests / SMALL_FED;
+    if(guests % SMALL_FED == 1){
+        small_pizzas = small_pizzas + 1;
+    }
+    std::cout << large_pizzas << " large pizzas, " << medium_pizzas << " medium pizzas, and " << small_pizzas << " small pizzas will be needed.\n\n";
+
+    double totalArea = (large_pizzas * (PI * pow(LARGE_DIAM/2, 2))) + (medium_pizzas * (PI * pow(MEDIUM_DIAM/2, 2))) + (small_pizzas * (PI * pow(SMALL_DIAM/2, 2)));
+
+    std::cout << std::fixed << std:: setprecision(2) << "A total of " << totalArea << " square inches of pizza will be ordered (" << totalArea/totalGuests << " per guest).\n\n";
+    std::cout << "Please enter the tip as a percentage (i.e. 10 means 10%): ";
+    std::cin >> tipPercent;
+
+    double pizzaCost = (large_pizzas * LARGE_PRICE) + (medium_pizzas * MEDIUM_PRICE) + (small_pizzas * SMALL_PRICE);
+
+    double tip = (pizzaCost*(tipPercent/100));
+
+    totalCost = tip + pizzaCost + 0.5;
+    std::cout << "The total cost of the event will be: $" << totalCost;
+
+    return 0;
+}
