@@ -4,15 +4,15 @@
 
 int main() {
     const double PI = 3.14159265;
-    const int LARGE_DIAM = 24;
-    const int LARGE_FED = 9;
-    const double LARGE_PRICE = 15.78;
-    const int MEDIUM_DIAM = 18;
-    const int MEDIUM_FED = 5;
-    const double MEDIUM_PRICE = 13.25;
-    const int SMALL_DIAM = 14;
-    const int SMALL_FED = 2;
-    const double SMALL_PRICE = 8.39;
+    const int LARGE_DIAM = 20;
+    const int LARGE_FED = 7;
+    const double LARGE_PRICE = 14.68;
+    const int MEDIUM_DIAM = 16;
+    const int MEDIUM_FED = 3;
+    const double MEDIUM_PRICE = 11.48;
+    const int SMALL_DIAM = 12;
+    const int SMALL_FED = 1;
+    const double SMALL_PRICE = 7.28;
     int guests;
     double tipPercent;
     int totalCost;
@@ -37,7 +37,7 @@ int main() {
 
     double totalArea = (large_pizzas * (PI * pow(LARGE_DIAM/2, 2))) + (medium_pizzas * (PI * pow(MEDIUM_DIAM/2, 2))) + (small_pizzas * (PI * pow(SMALL_DIAM/2, 2)));
 
-    std::cout << std::fixed << std:: setprecision(2) << "A total of " << totalArea << " square inches of pizza will be ordered (" << totalArea/totalGuests << " per guest).\n\n";
+    std::cout << std::fixed << std::setprecision(2) << "A total of " << totalArea << " square inches of pizza will be ordered (" << totalArea/totalGuests << " per guest).\n\n";
     std::cout << "Please enter the tip as a percentage (i.e. 10 means 10%): ";
     std::cin >> tipPercent;
 
